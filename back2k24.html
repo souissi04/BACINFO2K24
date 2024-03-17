@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="Sp" bgcolor="black">
+    <div class="background-container">
+      <div class="gif-container"></div>
+    </div>
+    <div class="intro">
+      <img src="source/logo.png.png" alt="" srcset="" class="logo" />
+    </div>
+    <div class="head">
+      <img src="source/logo.png.png" alt="" srcset="" class="lg" />
+    </div>
+    <div class="slider-container">
+      <div class="slider">
+        <img src="source/classe.jpg" alt="Image 1" />
+        <img src="source/432102858_3702260036701101_7997180459222286167_n.jpg" alt="Image 2" />
+        <img src="source/432045563_245701028532438_243380181435839260_n.jpg" alt="Image 3" />
+        <img src="source/10000000_7511511688911255_4862235248787429434_n.mp4" alt="Image 4" />
+      </div>
+    </div>
+    <div class="scroll"><h1>SCROLL DOWN</h1></div>
+    <div class="container">
+      <fieldset class="slide">
+        <legend>Ahmed Souissi</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>AbdEkader Boudhirwa</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>omar kochtane</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>amen allah sehli</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Abd Rahmen Matoug</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Alae oueslati</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Amal Haffar</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Anas Chaouch</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Aziz Nsir</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Bahri Souha</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Bani Yosra</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Cirine Bani</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Dali Ben Abdeltif</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Dridi Aziz</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Fatnasy Amanallah</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Mohamed Amin Hameda</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Hadil Hamdoun</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Hamza Barkit</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Islem Boulaaba</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Khalil Jadlaoui</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Mahdi Yedes</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>lina nechi</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Mohamed Ben Hassen</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Mouldi Hemden</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>mohamed ben othmen</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Mtar Rayen</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Nadine Lamiri</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Nassim Charabi</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Nassim Mansri</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Nour Abid</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Ranime Dhifallah</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Rayen Hjaij</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Souheil Belkhel</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Yassine Jazi</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Yassine Khemir</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Yassine Saidi</legend>
+      </fieldset>
+      <fieldset class="slide">
+        <legend>Youssef Ben Othmen</legend>
+      </fieldset>
+    </div>    
+    <script>
+      document.addEventListener("scroll", function () {
+        const slides = document.querySelectorAll(".slide");
+
+        slides.forEach((slide, index) => {
+          const slideTop = slide.getBoundingClientRect().top;
+
+          const isVisible = slideTop < window.innerHeight * 0.75;
+
+          const direction = index % 2 === 0 ? 1 : -1;
+
+          if (isVisible) {
+            slide.style.opacity = 1;
+            slide.style.transform = "translateX(0)";
+          } else {
+            slide.style.opacity = 0;
+            slide.style.transform = `translateX(${direction * 100}%)`;
+          }
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const slider = document.querySelector(".slider");
+        const slides = document.querySelectorAll(".slider img");
+        const totalSlides = slides.length;
+        let currentIndex = 0;
+
+        function showSlide(index) {
+          if (index < 0) {
+            index = totalSlides - 1;
+          } else if (index >= totalSlides) {
+            index = 0;
+          }
+
+          const translateValue = -index * 100 + "%";
+          slider.style.transform = "translateX(" + translateValue + ")";
+          currentIndex = index;
+        }
+
+        function showNextSlide() {
+          showSlide(currentIndex + 1);
+        }
+
+        setInterval(showNextSlide, 3000);
+      });
+    </script>
+<audio controls autoplay hidden>
+  <source src="source/music.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+  </body>
+</html>
